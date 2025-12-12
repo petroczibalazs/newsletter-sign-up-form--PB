@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Newsletter Sign-up</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="newsletter">
+    <section class="newsletter__illustration">
+      <picture>
+        <source
+          media="(min-width: 650px)"
+          srcset="./assets/images/illustration-sign-up-desktop.svg"
+        >
+        <img class="newsletter__image" src="./assets/images/illustration-sign-up-mobile.svg"
+             alt="Newsletter sign-up illustration">
+      </picture>
+    </section>
+
+    <section class="newsletter__content">
+      <h1 class="newsletter__title">Stay updated!</h1>
+
+      <p class="newsletter__description">
+        Join 60,000+ product managers receiving monthly updates on:
+      </p>
+
+      <ul class="newsletter__list">
+        <li class="newsletter__list-item">
+          Product discovery and building what matters
+        </li>
+        <li class="newsletter__list-item">
+          Measuring to ensure updates are a success
+        </li>
+        <li class="newsletter__list-item">
+          And much more!
+        </li>
+      </ul>
+
+      <form class="newsletter__form" novalidate>
+
+        <div class="newsletter__form-group newsletter__form-group--error">
+          <label class="newsletter__label" for="email">Email address</label>
+          <input
+            class="newsletter__input"
+            type="email"
+            id="email"
+            placeholder="email@company.com"
+            required
+          >
+          <span class="newsletter__error-message">Valid email required</span>
+        </div>
+
+        <button class="newsletter__button" type="submit">
+          Subscribe to monthly newsletter
+        </button>
+
+      </form>
+
+    </section>
+  </main>
+
+</body>
+</html>

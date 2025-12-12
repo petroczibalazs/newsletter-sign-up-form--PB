@@ -1,0 +1,266 @@
+
+/*#region: RESETS*/
+*,
+*::before,
+*::after
+{
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+dl,
+dd,
+figure{
+  padding: 0;
+  margin: 0;
+}
+
+ol,
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
+
+/*#endregion*/
+
+/* #region: general declarations */
+
+
+
+@font-face{
+  font-family: 'Roboto';
+  src:
+  local('Roboto Regular'),
+  url('./assets/fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face{
+  font-family: 'Roboto';
+  src:
+  local('Roboto Bold'),
+  url('./assets/fonts/Roboto-Bold.ttf');
+  font-weight: 700;
+}
+
+:root{
+
+  --clr-neutral-800: #242742ff;
+  --clr-neutral--700: #36384eff;
+  --clr-neutral-200: #949494ff;
+  --clr-neutral-100: #ffffff;
+
+  --clr-accent-dark: rgb(253, 83, 121);
+  --clr-accent-light: rgb(255, 104, 63);
+
+  --clr-accent-400: rgb(255, 98, 87);
+  --clr-accent-500: rgb(255, 82, 119);
+
+  --ff-base: Roboto, sans-serif;
+
+  --fs-300: 1.3rem;
+  --fs-400: 1.6rem;
+  --fs-600: 4rem;
+  --fs-800: 5.3rem;
+
+  --fw-regular: 400;
+  --fw-bold: 800;
+
+}
+
+html{
+  font-size: 62.5%;
+}
+
+/* #endregion*/
+
+/* #region: CSS rules */
+
+body{
+
+  font-family: var(--ff-base);
+  font-weight: var(--fs-400);
+  font-size: var(--fs-400);
+  line-height: 1.5;
+  color: var(--clr-neutral-800);
+  background-color: var(--clr-neutral-800);
+  min-height: 100vh;
+  display: grid;
+  align-content: start;
+  justify-content: center;
+}
+
+.newsletter{
+  background-color: var(--clr-neutral-100);
+  max-width: 930px;
+  border-radius: 1rem;
+}
+
+.newsletter__image {
+  margin: 0 auto;
+}
+
+.newsletter__content{
+  padding: 3rem 2.4rem 4rem;
+}
+
+.newsletter__title{
+  font-size: var(--fs-600);
+  font-weight: var(--fw-bold);
+  vertical-align: top;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter__list{
+  margin-top: 2rem;
+  margin-bottom: 4.5rem;
+  display: grid;
+  row-gap: .8rem;
+}
+
+.newsletter__list-item{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1.6rem;
+}
+
+.newsletter__list-item::before{
+  content: url('./assets/images/icon-list.svg');
+}
+
+
+.newsletter__form{
+  display: grid;
+  gap: 2rem;
+  isolation: isolate;
+}
+
+.newsletter__form-group{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.4rem;
+
+}
+
+.newsletter__label,
+.newsletter__error-message{
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+}
+
+.newsletter__error-message{
+  color: var(--clr-accent-dark);
+  grid-row: 1;
+  grid-column: 2;
+  text-align: end;
+  display: none;
+}
+
+.newsletter__form-group >
+:invalid:not(:focus):not(:placeholder-shown) ~ .newsletter__error-message{
+  display: block;
+}
+
+.newsletter__input{
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-neutral-200);
+  font: inherit;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.newsletter__input::placeholder{
+  color: var(--clr-neutral-200);
+  font-size:  var(--fs-300);
+}
+
+.newsletter__button{
+  position: relative;
+  text-align: center;
+  background-color: var(--clr-neutral-800);
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-bold);
+  border: none;
+  border-radius: 8px;
+  padding: 2rem 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.newsletter__button:hover,
+.newsletter__button:focus-visible{
+  background: linear-gradient(90deg, var(--clr-accent-400), var(--clr-accent-500))
+}
+
+.newsletter__button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  translate: 0 0;
+  opacity: 0;
+  filter: blur(0);
+  transition:
+    opacity 0.3s ease,
+    translate 0.3s ease,
+    filter 0.3s ease;
+}
+
+.newsletter__button:hover::after,
+.newsletter__button:focus-visible::after {
+  translate: 0 1.5rem;
+  opacity: 0.5;
+  filter: blur(1rem);
+  background: inherit;
+}
+
+
+
+
+@media ( min-width: 650px){
+  body{
+    align-content: center;
+  }
+
+  .newsletter{
+    display: grid;
+    align-items: center;
+    column-gap: 5.4rem;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 2rem;
+    margin-inline: 1rem;
+    padding: 2.4rem 2.4rem 2.4rem 6.4rem;
+  }
+
+  .newsletter__content{
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+
+.newsletter__title{
+  font-size: var(--fs-800);
+}
+}
+
+/* #endregion */
+
