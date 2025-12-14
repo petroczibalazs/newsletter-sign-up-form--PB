@@ -51,6 +51,7 @@
             type="email"
             id="email"
             placeholder="email@company.com"
+            minlength="8" 
             required
           >
           <span class="newsletter__error-message">Valid email required</span>
@@ -63,7 +64,26 @@
       </form>
 
     </section>
-  </main>
 
+    <div class="newsletter__confirm-panel">
+      <img class="newsletter__confirm-icon" src="./assets/images/icon-success.svg" alt="">
+      <div class="newsletter__confirm-texts">
+        <h2 class="newsletter__title">Thanks for subscribing!</h2>
+        <p class="newsletter__description"> A confirmation email has been sent to <span class="newsletter__confirm-span">ash@loremcompany.com</span>. Please open it and click the button inside to confirm your subscription.</p>
+
+      </div>
+
+<button class="newsletter__button newsletter__button--dismiss">
+  Dissmiss message
+
+</button>
+    </div>
+
+
+  </main>
+<div class="page-cover"></div>
+
+
+<script src="script.js"></script>
 </body>
 </html>
